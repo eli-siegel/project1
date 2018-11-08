@@ -208,7 +208,28 @@
                     var lng = place.geometry.viewport.j.j;
                     console.log(place.geometry.viewport.l.l)
                     console.log(place.geometry.viewport.j.j)
-                    var queryURL = 'https://api.seatgeek.com/2/events?client_id=MTA1MzUxMzF8MTU0MTQ3OTE5OC43Ng&client_secret=ad4b1c6a4b3061a665dba3bd148f7894263e0c91a75dc7df6e9dea034ea6487b&lat=' + lat + '&lon=' + lng + '&type=concert&per_page=10&range=20mi';
+
+
+                    //getting date for search query? idk
+                    var today = new Date();
+                    var dd = today.getDate();
+                    var mm = today.getMonth()+1; //January is 0!
+                    var yyyy = today.getFullYear();
+
+                    if(dd<10) {
+                        dd = '0'+dd
+                    } 
+
+                    if(mm<10) {
+                        mm = '0'+mm
+                    } 
+
+                    today = yyyy + '-' + mm + '-' + dd;
+                    console.log(today);
+                    //end of get date
+
+                    //call to seatgeek api
+                    var queryURL = 'https://api.seatgeek.com/2/events?client_id=MTA1MzUxMzF8MTU0MTQ3OTE5OC43Ng&client_secret=ad4b1c6a4b3061a665dba3bd148f7894263e0c91a75dc7df6e9dea034ea6487b&lat=' + lat + '&lon=' + lng + '&type=concert&per_page=10&range=20mi&datetime_utc.gt=' + today;
 
                     $.ajax({
                         url: queryURL,
