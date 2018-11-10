@@ -16,11 +16,6 @@ td{
 	background-color: white;
 }
 
-#container {
-    margin-left: 10%;
-    margin-bottom: 10px;
-}
-
 #location-form{
 	width: 100%;
 }
@@ -35,14 +30,15 @@ td{
 #results{
 	width:100%;
 	margin-bottom: 20px;
-	overflow: auto; 
+	overflow-y:scroll; 
+	height:500px;
 }
 
 #table{
 	width:100%;
 	margin-bottom: 20px;
-	overflow: auto; 
-	height:100%;
+	overflow-y:scroll; 
+	height:500px;
 	padding-top: 10px;
 	border-radius: 5px;
 	
@@ -56,7 +52,7 @@ td{
 }
 
 th{
-	background-color: rgb(2, 77, 238);
+	background-color: navy;
 	text-align: center;
 	color: white;
 	padding:3px;
@@ -121,12 +117,7 @@ input{
 }
 
 
-table, th {
-    border: 2px solid black;
-
-}
-
-td {
+table, th, td {
     border: 1px solid black;
 }
 
@@ -134,7 +125,7 @@ table {
     table-layout: fixed;
     width: 200px;
     height: 40px;
-
+    
 }
 
 td {
@@ -144,71 +135,29 @@ td {
 /* Always set the map height explicitly to define the size of the div
 * element that contains the map. */
 #mcTable {
-   width: 80%;
-   margin-left: 10%;
-   margin-right: 10%;
+   width: 100%;
 }
 
-@font-face {
-    font-family: titleFont;
-    src: url(assets/title-font.ttf);
-}
 
-#title {
-    font-family: titleFont;
-    color: white;
-    font-size: 75px;
-    text-shadow:
-    -2px -2px 0 #000,  
-    2px -2px 0 #000,
-    -2px 2px 0 #000,
-     2px 2px 0 #000;
-    margin-left: 10%;
-    margin-top: 40px;
-}
-
-@font-face {
-    font-family: instructionFont;
-    src: url(assets/instructions.ttf);
-}
-
-#instructions {
-    font-family: 'Lobster', cursive;
-    color: white;
-    text-shadow:
-    -1.5px -1.5px 0 #000,  
-    1.5px -1.5px 0 #000,
-    -1.5px 1.5px 0 #000,
-     1.5px 1.5px 0 #000;
-    margin-left: 10%;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
 
 #map {
-    height: 50%;
-    width: 80%;
-    position: fixed;
-    left: 10%;
-    right: 10%;
-    margin-bottom: 20px;
-    border: 2px solid black;
-}
-
-#pac-input {
-    border: 1px solid black;
-    margin-top: 10px;
+height: 50%;
+width: 75%;
+position: fixed;
+left: 10%;
+right: 10%;
+margin-bottom: 20px;
 }
 /* Optional: Makes the sample page fill the window. */
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+height: 100%;
+margin: 0;
+padding: 0;
 }
 #description {
-    font-family: Roboto;
-    font-size: 15px;
-    font-weight: 300;
+font-family: Roboto;
+font-size: 15px;
+font-weight: 300;
 }
 
 #infowindow-content .title {
@@ -265,7 +214,13 @@ width: 400px;
 border-color: #4d90fe;
 }
 
-
+#title {
+color: #fff;
+background-color: #4d90fe;
+font-size: 25px;
+font-weight: 500;
+padding: 6px 12px;
+}
 
 #target {
 width: 345px;

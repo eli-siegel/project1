@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Places Search Box</title>
+    <title>Concert Map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--link to bootstrap css-->
@@ -16,10 +16,24 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap 
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" /> -->
+
+    <!-- Bootstrap Date-Picker Plugin
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+    -->
+
+    <!--js file link-->
+    <script type = "javascript" src="logic.js"></script>
+
+    <!--font-->
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 </head>
 
 <body>
-    <h1 id="instructions">Enter a Location</h1>
+    <h1 id="title">Concert Map</h1>
+    <h3 id = "instructions">Type in your location and Press Enter to find Concerts!</h3>
 
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
 
@@ -35,7 +49,6 @@
             <option value="&genres.slug=hip-hop">Hip-Hop</option>
             <option value="&genres.slug=indie">Indie</option>
             <option value="&genres.slug=blues">Blues</option>
-            <option value="&genres.slug=classical">Classical</option>
             <option value="&genres.slug=folk">Folk</option>
             <option value="&genres.slug=hard-rock">Hard Rock</option>
             <option value="&genres.slug=jazz">Jazz</option>
@@ -48,11 +61,16 @@
         </select>
 
         <select id="onPage">
+                <option value="10">Number of Results</option>
                 <option value="10">10</option>
                 <option value="20">20</option>
                 <option value="30">30</option>
                 <option value="50">50</option>
         </select>
+
+        
+
+
 
     </div>
     <div id="map">
@@ -93,8 +111,12 @@
         // parameter when you first load the API. For example:
         // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
         
+            
+
         $("#mcTable").hide();
+
         var markers = [];
+
         function setMapOnAll(map) {
                 for (var i = 0; i < markers.length; i++) {
                     console.log("markers", markers[i]);
@@ -272,7 +294,6 @@
 
 
                             var tr = document.createElement('tr');
-                            $("#instructions").hide();
                             $("#addResults").show();
                             $("#mcTable").show();
 
@@ -293,7 +314,7 @@
                 map.fitBounds(bounds);
             });
         }
-        
+
 
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6PycHPPiEboqP1xYCSIXeyQFcXslZWS0&libraries=places&callback=initAutocomplete"
