@@ -161,8 +161,8 @@ td {
     text-shadow:
     -2px -2px 0 #000,  
     2px -2px 0 #000,
-    -2px 2px 0 #000,
-     2px 2px 0 #000;
+    -3px 3px 0 #000,
+     3px 3px 0 #000;
     margin-left: 10%;
     margin-top: 40px;
 }
